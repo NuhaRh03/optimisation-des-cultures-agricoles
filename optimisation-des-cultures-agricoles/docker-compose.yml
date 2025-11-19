@@ -1,0 +1,65 @@
+services:
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+    container_name: namenode
+    environment:
+      - CLUSTER_NAME=hadoop-cluster
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+    ports:
+      - "9870:9870"
+      - "9000:9000"
+    volumes:
+      - namenode-data:/hadoop/dfs/namenode
+    networks:
+      - bigdata
+
+  datanode:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: datanode
+    environment:
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+    ports:
+      - "9864:9864"
+    volumes:
+      - datanode-data:/hadoop/dfs/datanode
+    networks:
+      - bigdata
+    depends_on:
+      - namenode
+
+  spark-master:
+    image: bde2020/spark-master:3.2.0-hadoop3.2
+    container_name: spark-master
+    environment:
+      - INIT_DAEMON_STEP=setup_spark
+      - SPARK_MASTER_HOST=spark-master
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+    volumes:
+      - ./spark-apps:/spark-apps
+    networks:
+      - bigdata
+
+  spark-worker:
+    image: bde2020/spark-worker:3.2.0-hadoop3.2
+    container_name: spark-worker
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+   
+    volumes:
+      - "C:/Users/espacegamers/Documents/PROJETS/BigData/spark-apps:/spark-apps"
+    ports:
+      - "8081:8081"
+    networks:
+      - bigdata
+    depends_on:
+      - spark-master
+
+
+volumes:
+  namenode-data:
+  datanode-data:
+
+networks:
+  bigdata:
