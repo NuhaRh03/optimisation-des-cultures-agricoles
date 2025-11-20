@@ -1,0 +1,12 @@
+locations:
+  - name: "Farm_A"
+    lat: 33.5731
+    lon: -7.5898
+
+  - name: "Farm_B"
+    lat: 34.0209
+    lon: -6.8416
+
+  - name: "Farm_C"
+    lat: 31.6340
+    lon: -7.9999

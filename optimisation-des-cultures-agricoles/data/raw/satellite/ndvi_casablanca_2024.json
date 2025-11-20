@@ -1,0 +1,799 @@
+{
+  "type": "FeatureCollection",
+  "columns": {},
+  "version": 1763602554326189,
+  "id": "COPERNICUS/S2_SR_HARMONIZED",
+  "properties": {
+    "date_range": [
+      1490659200000,
+      1647907200000
+    ],
+    "period": 0,
+    "system:visualization_0_min": "0.0",
+    "type_name": "ImageCollection",
+    "keywords": [
+      "copernicus",
+      "esa",
+      "eu",
+      "msi",
+      "reflectance",
+      "sentinel",
+      "sr"
+    ],
+    "system:visualization_0_bands": "B4,B3,B2",
+    "thumb": "https://mw1.google.com/ges/dd/images/COPERNICUS_S2_SR_thumb.png",
+    "description": "<p>Sentinel-2 is a wide-swath, high-resolution, multi-spectral\nimaging mission supporting Copernicus Land Monitoring studies,\nincluding the monitoring of vegetation, soil and water cover,\nas well as observation of inland waterways and coastal areas.</p><p>The Sentinel-2 L2 data are downloaded from scihub. They were\ncomputed by running sen2cor. WARNING: ESA did not produce L2 data\nfor all L1 assets, and earlier L2 coverage is not global.</p><p>The assets contain\n12 UINT16 spectral bands representing SR scaled by 10000 (unlike in L1 data,\nthere is no B10). There are also several more L2-specific bands (see band\nlist for details). See the\n<a href=\"https://sentinel.esa.int/documents/247904/685211/Sentinel-2_User_Handbook\">Sentinel-2 User Handbook</a>\nfor details. In addition, three QA bands are present where one\n(QA60) is a bitmask band with cloud mask information. For more\ndetails, <a href=\"https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-1c/cloud-masks\">see the full explanation of how cloud masks are computed.</a></p><p>EE asset ids for Sentinel-2 L2 assets have the following format:\nCOPERNICUS/S2_SR/20151128T002653_20151128T102149_T56MNN. Here the\nfirst numeric part represents the sensing date and time, the\nsecond numeric part represents the product generation date and\ntime, and the final 6-character string is a unique granule identifier\nindicating its UTM grid reference (see <a href=\"https://en.wikipedia.org/wiki/Military_Grid_Reference_System\">MGRS</a>).</p><p>Clouds can be removed by using\n<a href=\"COPERNICUS_S2_CLOUD_PROBABILITY\">COPERNICUS/S2_CLOUD_PROBABILITY</a>.\nSee\n<a href=\"https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless\">this tutorial</a>\nexplaining how to apply the cloud mask.</p><p>For more details on Sentinel-2 radiometric resolution, <a href=\"https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric\">see this page</a>.</p><p><b>Provider: <a href=\"https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/product-types/level-2a\">European Union/ESA/Copernicus</a></b><br><p><b>Revisit Interval</b><br>\n  5 days\n</p><p><b>Bands</b><table class=\"eecat\"><tr><th scope=\"col\">Name</th><th scope=\"col\">Description</th></tr><tr><td>B1</td><td><p>Aerosols</p></td></tr><tr><td>B2</td><td><p>Blue</p></td></tr><tr><td>B3</td><td><p>Green</p></td></tr><tr><td>B4</td><td><p>Red</p></td></tr><tr><td>B5</td><td><p>Red Edge 1</p></td></tr><tr><td>B6</td><td><p>Red Edge 2</p></td></tr><tr><td>B7</td><td><p>Red Edge 3</p></td></tr><tr><td>B8</td><td><p>NIR</p></td></tr><tr><td>B8A</td><td><p>Red Edge 4</p></td></tr><tr><td>B9</td><td><p>Water vapor</p></td></tr><tr><td>B11</td><td><p>SWIR 1</p></td></tr><tr><td>B12</td><td><p>SWIR 2</p></td></tr><tr><td>AOT</td><td><p>Aerosol Optical Thickness</p></td></tr><tr><td>WVP</td><td><p>Water Vapor Pressure. The height the water would occupy if the vapor were condensed into\nliquid and spread evenly across the column.</p></td></tr><tr><td>SCL</td><td><p>Scene Classification Map (The &quot;No Data&quot; value of 0 is masked out)</p></td></tr><tr><td>TCI_R</td><td><p>True Color Image, Red channel</p></td></tr><tr><td>TCI_G</td><td><p>True Color Image, Green channel</p></td></tr><tr><td>TCI_B</td><td><p>True Color Image, Blue channel</p></td></tr><tr><td>MSK_CLDPRB</td><td><p>Cloud Probability Map (missing in some products)</p></td></tr><tr><td>MSK_SNWPRB</td><td><p>Snow Probability Map (missing in some products)</p></td></tr><tr><td>QA10</td><td><p>Always empty</p></td></tr><tr><td>QA20</td><td><p>Always empty</p></td></tr><tr><td>QA60</td><td><p>Cloud mask</p></td></tr><tr><td colspan=100>\n      Bitmask for QA60\n<ul><li>\n          Bit 10: Opaque clouds\n<ul><li>0: No opaque clouds</li><li>1: Opaque clouds present</li></ul></li><li>\n          Bit 11: Cirrus clouds\n<ul><li>0: No cirrus clouds</li><li>1: Cirrus clouds present</li></ul></li></ul></td></tr></table><p><b>Image Properties</b><table class=\"eecat\"><tr><th scope=\"col\">Name</th><th scope=\"col\">Type</th><th scope=\"col\">Description</th></tr><tr><td>AOT_RETRIEVAL_ACCURACY</td><td>DOUBLE</td><td><p>Accuracy of Aerosol Optical thickness model</p></td></tr><tr><td>CLOUDY_PIXEL_PERCENTAGE</td><td>DOUBLE</td><td><p>Granule-specific cloudy pixel percentage taken from the original metadata</p></td></tr><tr><td>CLOUD_COVERAGE_ASSESSMENT</td><td>DOUBLE</td><td><p>Cloudy pixel percentage for the whole archive that\ncontains this granule. Taken from the original metadata</p></td></tr><tr><td>CLOUDY_SHADOW_PERCENTAGE</td><td>DOUBLE</td><td><p>Percentage of pixels classified as cloud shadow</p></td></tr><tr><td>DARK_FEATURES_PERCENTAGE</td><td>DOUBLE</td><td><p>Percentage of pixels classified as dark features or shadows</p></td></tr><tr><td>DATASTRIP_ID</td><td>STRING</td><td><p>Unique identifier of the datastrip Product Data Item (PDI)</p></td></tr><tr><td>DATATAKE_IDENTIFIER</td><td>STRING</td><td><p>Uniquely identifies a given Datatake. The ID contains\nthe Sentinel-2 satellite, start date and time, absolute orbit\nnumber, and processing baseline.</p></td></tr><tr><td>DATATAKE_TYPE</td><td>STRING</td><td><p>MSI operation mode</p></td></tr><tr><td>DEGRADED_MSI_DATA_PERCENTAGE</td><td>DOUBLE</td><td><p>Percentage of degraded MSI and ancillary data</p></td></tr><tr><td>FORMAT_CORRECTNESS</td><td>STRING</td><td><p>Synthesis of the On-Line Quality Control (OLQC) checks\nperformed at granule (Product_Syntax) and datastrip (Product\nSyntax and DS_Consistency) levels</p></td></tr><tr><td>GENERAL_QUALITY</td><td>STRING</td><td><p>Synthesis of the OLQC checks performed at the datastrip level (Relative_Orbit_Number)</p></td></tr><tr><td>GENERATION_TIME</td><td>DOUBLE</td><td><p>Product generation time</p></td></tr><tr><td>GEOMETRIC_QUALITY</td><td>STRING</td><td><p>Synthesis of the OLQC checks performed at the datastrip level (Attitude_Quality_Indicator)</p></td></tr><tr><td>GRANULE_ID</td><td>STRING</td><td><p>Unique identifier of the granule PDI (PDI_ID)</p></td></tr><tr><td>HIGH_PROBA_CLOUDS_PERCENTAGE</td><td>DOUBLE</td><td><p>Percentage of pixels classified as high probability clouds</p></td></tr><tr><td>MEAN_INCIDENCE_AZIMUTH_ANGLE_B1</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence azimuth angle average for band B1 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_AZIMUTH_ANGLE_B2</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence azimuth angle average for band B2 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_AZIMUTH_ANGLE_B3</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence azimuth angle average for band B3 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_AZIMUTH_ANGLE_B4</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence azimuth angle average for band B4 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_AZIMUTH_ANGLE_B5</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence azimuth angle average for band B5 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_AZIMUTH_ANGLE_B6</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence azimuth angle average for band B6 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_AZIMUTH_ANGLE_B7</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence azimuth angle average for band B7 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_AZIMUTH_ANGLE_B8</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence azimuth angle average for band B8 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_AZIMUTH_ANGLE_B8A</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence azimuth angle average for band B8a and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_AZIMUTH_ANGLE_B9</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence azimuth angle average for band B9 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_AZIMUTH_ANGLE_B10</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence azimuth angle average for band B10 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_AZIMUTH_ANGLE_B11</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence azimuth angle average for band B11 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_AZIMUTH_ANGLE_B12</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence azimuth angle average for band B12 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_ZENITH_ANGLE_B1</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence zenith angle average for band B1 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_ZENITH_ANGLE_B2</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence zenith angle average for band B2 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_ZENITH_ANGLE_B3</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence zenith angle average for band B3 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_ZENITH_ANGLE_B4</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence zenith angle average for band B4 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_ZENITH_ANGLE_B5</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence zenith angle average for band B5 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_ZENITH_ANGLE_B6</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence zenith angle average for band B6 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_ZENITH_ANGLE_B7</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence zenith angle average for band B7 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_ZENITH_ANGLE_B8</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence zenith angle average for band B8 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_ZENITH_ANGLE_B8A</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence zenith angle average for band B8a and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_ZENITH_ANGLE_B9</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence zenith angle average for band B9 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_ZENITH_ANGLE_B10</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence zenith angle average for band B10 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_ZENITH_ANGLE_B11</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence zenith angle average for band B11 and for all detectors</p></td></tr><tr><td>MEAN_INCIDENCE_ZENITH_ANGLE_B12</td><td>DOUBLE</td><td><p>Mean value containing viewing incidence zenith angle average for band B12 and for all detectors</p></td></tr><tr><td>MEAN_SOLAR_AZIMUTH_ANGLE</td><td>DOUBLE</td><td><p>Mean value containing sun azimuth angle average for all bands and detectors</p></td></tr><tr><td>MEAN_SOLAR_ZENITH_ANGLE</td><td>DOUBLE</td><td><p>Mean value containing sun zenith angle average for all bands and detectors</p></td></tr><tr><td>MEDIUM_PROBA_CLOUDS_PERCENTAGE</td><td>DOUBLE</td><td><p>Percentage of pixels classified as medium probability clouds</p></td></tr><tr><td>MGRS_TILE</td><td>STRING</td><td><p>US-Military Grid Reference System (MGRS) tile</p></td></tr><tr><td>NODATA_PIXEL_PERCENTAGE</td><td>DOUBLE</td><td><p>Percentage of No Data pixels</p></td></tr><tr><td>NOT_VEGETATED_PERCENTAGE</td><td>DOUBLE</td><td><p>Percentage of pixels classified as non-vegetated</p></td></tr><tr><td>PROCESSING_BASELINE</td><td>STRING</td><td><p>Configuration baseline used at the time of the product\ngeneration in terms of processor software version and major Ground\nImage Processing Parameters (GIPP) version</p></td></tr><tr><td>PRODUCT_ID</td><td>STRING</td><td><p>The full id of the original Sentinel-2 product</p></td></tr><tr><td>RADIATIVE_TRANSFER_ACCURACY</td><td>DOUBLE</td><td><p>Accuracy of radiative transfer model</p></td></tr><tr><td>RADIOMETRIC_QUALITY</td><td>STRING</td><td><p>Based on the OLQC reports contained in the Datastrips/QI_DATA with RADIOMETRIC_QUALITY checklist name</p></td></tr><tr><td>REFLECTANCE_CONVERSION_CORRECTION</td><td>DOUBLE</td><td><p>Earth-Sun distance correction factor</p></td></tr><tr><td>SATURATED_DEFECTIVE_PIXEL_PERCENTAGE</td><td>DOUBLE</td><td><p>Percentage of saturated or defective pixels</p></td></tr><tr><td>SENSING_ORBIT_DIRECTION</td><td>STRING</td><td><p>Imaging orbit direction</p></td></tr><tr><td>SENSING_ORBIT_NUMBER</td><td>DOUBLE</td><td><p>Imaging orbit number</p></td></tr><tr><td>SENSOR_QUALITY</td><td>STRING</td><td><p>Synthesis of the OLQC checks performed at granule\n(Missing_Lines, Corrupted_ISP, and Sensing_Time) and datastrip\n(Degraded_SAD and Datation_Model) levels</p></td></tr><tr><td>SOLAR_IRRADIANCE_B1</td><td>DOUBLE</td><td><p>Mean solar exoatmospheric irradiance for band B1</p></td></tr><tr><td>SOLAR_IRRADIANCE_B2</td><td>DOUBLE</td><td><p>Mean solar exoatmospheric irradiance for band B2</p></td></tr><tr><td>SOLAR_IRRADIANCE_B3</td><td>DOUBLE</td><td><p>Mean solar exoatmospheric irradiance for band B3</p></td></tr><tr><td>SOLAR_IRRADIANCE_B4</td><td>DOUBLE</td><td><p>Mean solar exoatmospheric irradiance for band B4</p></td></tr><tr><td>SOLAR_IRRADIANCE_B5</td><td>DOUBLE</td><td><p>Mean solar exoatmospheric irradiance for band B5</p></td></tr><tr><td>SOLAR_IRRADIANCE_B6</td><td>DOUBLE</td><td><p>Mean solar exoatmospheric irradiance for band B6</p></td></tr><tr><td>SOLAR_IRRADIANCE_B7</td><td>DOUBLE</td><td><p>Mean solar exoatmospheric irradiance for band B7</p></td></tr><tr><td>SOLAR_IRRADIANCE_B8</td><td>DOUBLE</td><td><p>Mean solar exoatmospheric irradiance for band B8</p></td></tr><tr><td>SOLAR_IRRADIANCE_B8A</td><td>DOUBLE</td><td><p>Mean solar exoatmospheric irradiance for band B8a</p></td></tr><tr><td>SOLAR_IRRADIANCE_B9</td><td>DOUBLE</td><td><p>Mean solar exoatmospheric irradiance for band B9</p></td></tr><tr><td>SOLAR_IRRADIANCE_B10</td><td>DOUBLE</td><td><p>Mean solar exoatmospheric irradiance for band B10</p></td></tr><tr><td>SOLAR_IRRADIANCE_B11</td><td>DOUBLE</td><td><p>Mean solar exoatmospheric irradiance for band B11</p></td></tr><tr><td>SOLAR_IRRADIANCE_B12</td><td>DOUBLE</td><td><p>Mean solar exoatmospheric irradiance for band B12</p></td></tr><tr><td>SNOW_ICE_PERCENTAGE</td><td>DOUBLE</td><td><p>Percentage of pixels classified as snow or ice</p></td></tr><tr><td>SPACECRAFT_NAME</td><td>STRING</td><td><p>Sentinel-2 spacecraft name: Sentinel-2A, Sentinel-2B</p></td></tr><tr><td>THIN_CIRRUS_PERCENTAGE</td><td>DOUBLE</td><td><p>Percentage of pixels classified as thin cirrus clouds</p></td></tr><tr><td>UNCLASSIFIED_PERCENTAGE</td><td>DOUBLE</td><td><p>Percentage of unclassified pixels</p></td></tr><tr><td>VEGETATION_PERCENTAGE</td><td>DOUBLE</td><td><p>Percentage of pixels classified as vegetation</p></td></tr><tr><td>WATER_PERCENTAGE</td><td>DOUBLE</td><td><p>Percentage of pixels classified as water</p></td></tr><tr><td>WATER_VAPOUR_RETRIEVAL_ACCURACY</td><td>DOUBLE</td><td><p>Declared accuracy of the Water Vapor model</p></td></tr></table><p><b>Terms of Use</b><br><p>The use of Sentinel data is governed by the <a href=\"https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf\">Copernicus\nSentinel Data Terms and Conditions.</a></p><style>\n  table.eecat {\n  border: 1px solid black;\n  border-collapse: collapse;\n  font-size: 13px;\n  }\n  table.eecat td, tr, th {\n  text-align: left; vertical-align: top;\n  border: 1px solid gray; padding: 3px;\n  }\n  td.nobreak { white-space: nowrap; }\n</style>",
+    "source_tags": [
+      "eu",
+      "esa",
+      "copernicus",
+      "sentinel"
+    ],
+    "visualization_0_max": "3000.0",
+    "provider_url": "https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/product-types/level-2a",
+    "title": "Sentinel-2 MSI: MultiSpectral Instrument, Level-2A",
+    "sample": "https://mw1.google.com/ges/dd/images/COPERNICUS_S2_SR_sample.png",
+    "tags": [
+      "copernicus",
+      "esa",
+      "eu",
+      "msi",
+      "reflectance",
+      "sentinel",
+      "sr"
+    ],
+    "system:visualization_0_max": "3000.0",
+    "product_tags": [
+      "msi",
+      "sr",
+      "reflectance"
+    ],
+    "provider": "European Union/ESA/Copernicus",
+    "visualization_0_min": "0.0",
+    "system:visualization_0_name": "RGB",
+    "visualization_0_name": "RGB",
+    "visualization_0_bands": "B4,B3,B2"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240101T111359_20240101T111410_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-01-01",
+        "ndvi_mean": 0.1550598838208888
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240106T111441_20240106T111439_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-01-06",
+        "ndvi_mean": 0.051030428223258824
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240111T111329_20240111T111332_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-01-11",
+        "ndvi_mean": 0.1721528599882569
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240116T111411_20240116T111438_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-01-16",
+        "ndvi_mean": 0.029910886606602256
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240121T111259_20240121T111503_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-01-21",
+        "ndvi_mean": 0.18241622645282618
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240126T111331_20240126T111440_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-01-26",
+        "ndvi_mean": 0.16636565978692902
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240131T111209_20240131T111211_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-01-31",
+        "ndvi_mean": 0.12338536054781836
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240205T111241_20240205T111442_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-02-05",
+        "ndvi_mean": 0.11169834532794856
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240210T111119_20240210T112112_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-02-10",
+        "ndvi_mean": -0.012590325047128927
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240215T111141_20240215T111444_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-02-15",
+        "ndvi_mean": 0.10859949976467342
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240220T111009_20240220T111943_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-02-20",
+        "ndvi_mean": 0.14960669946146138
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240225T111051_20240225T111445_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-02-25",
+        "ndvi_mean": 0.17040342113132853
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240301T110859_20240301T111754_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-03-01",
+        "ndvi_mean": 0.09191851187895841
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240306T110921_20240306T111448_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-03-06",
+        "ndvi_mean": 0.1630887190159324
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240311T110749_20240311T111746_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-03-11",
+        "ndvi_mean": 0.10757736213741219
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240316T110811_20240316T111244_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-03-16",
+        "ndvi_mean": 0.152158066776212
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240321T110639_20240321T112134_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-03-21",
+        "ndvi_mean": 0.05867095906847398
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240326T110701_20240326T111030_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-03-26",
+        "ndvi_mean": 0.18573865138655296
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240331T110629_20240331T111940_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-03-31",
+        "ndvi_mean": 0.016702378895351422
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240405T110621_20240405T110919_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-04-05",
+        "ndvi_mean": 0.1578136234730932
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240410T110619_20240410T112113_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-04-10",
+        "ndvi_mean": 0.17956353417625492
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240415T110621_20240415T111638_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-04-15",
+        "ndvi_mean": 0.1760290251510961
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240420T110619_20240420T112113_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-04-20",
+        "ndvi_mean": 0.025167658958083684
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240425T110621_20240425T110956_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-04-25",
+        "ndvi_mean": 0.11808669278721148
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240430T110619_20240430T112113_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-04-30",
+        "ndvi_mean": 0.14896990769368107
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240505T110621_20240505T110921_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-05-05",
+        "ndvi_mean": 0.15370452880002086
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240505T110621_20240505T112159_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-05-05",
+        "ndvi_mean": 0.15371558780518085
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240510T110619_20240510T112113_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-05-10",
+        "ndvi_mean": 0.02762003265827464
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240515T110621_20240515T111001_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-05-15",
+        "ndvi_mean": 0.03755668883687466
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240520T110619_20240520T111145_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-05-20",
+        "ndvi_mean": 0.13843190229943209
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240525T110621_20240525T111425_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-05-25",
+        "ndvi_mean": 0.07270766073448397
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240530T110619_20240530T111411_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-05-30",
+        "ndvi_mean": 0.06945692400063781
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240604T110621_20240604T111730_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-06-04",
+        "ndvi_mean": 0.06446525151619212
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240609T110619_20240609T111627_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-06-09",
+        "ndvi_mean": 0.12389250747956267
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240614T110621_20240614T110942_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-06-14",
+        "ndvi_mean": 0.07661266070301928
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240619T110619_20240619T111619_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-06-19",
+        "ndvi_mean": 0.14311665799950304
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240624T110641_20240624T111001_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-06-24",
+        "ndvi_mean": 0.1236146063770463
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240629T110619_20240629T112117_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-06-29",
+        "ndvi_mean": 0.12214511466526298
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240704T110621_20240704T112135_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-07-04",
+        "ndvi_mean": 0.11939609922185787
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240709T110619_20240709T112115_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-07-09",
+        "ndvi_mean": 0.12650017273093897
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240714T110621_20240714T111818_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-07-14",
+        "ndvi_mean": 0.13669475400296258
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240719T110619_20240719T111146_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-07-19",
+        "ndvi_mean": 0.11874205399400656
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240724T110621_20240724T111800_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-07-24",
+        "ndvi_mean": 0.10275647455533321
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240729T110619_20240729T112114_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-07-29",
+        "ndvi_mean": 0.1280435792450237
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240803T110621_20240803T112017_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-08-03",
+        "ndvi_mean": 0.12060052730076148
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240808T110619_20240808T111048_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-08-08",
+        "ndvi_mean": 0.1248232011835707
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240813T110621_20240813T111636_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-08-13",
+        "ndvi_mean": 0.1220640400751939
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240818T110619_20240818T111054_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-08-18",
+        "ndvi_mean": 0.1152911883572222
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240823T110621_20240823T111458_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-08-23",
+        "ndvi_mean": 0.12179442988695587
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240828T110619_20240828T111047_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-08-28",
+        "ndvi_mean": 0.1150315713615104
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240902T110621_20240902T111316_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-09-02",
+        "ndvi_mean": 0.11132820838616266
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240907T110619_20240907T111351_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-09-07",
+        "ndvi_mean": 0.11119181477756881
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240912T110631_20240912T111935_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-09-12",
+        "ndvi_mean": 0.1128502101593808
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240917T110619_20240917T111928_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-09-17",
+        "ndvi_mean": 0.10649845805536802
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240922T110751_20240922T111212_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-09-22",
+        "ndvi_mean": 0.12665614060275707
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20240927T110739_20240927T111822_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-09-27",
+        "ndvi_mean": 0.11255824586587733
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241002T110901_20241002T111430_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-10-02",
+        "ndvi_mean": 0.09015951946554579
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241007T110839_20241007T111812_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-10-07",
+        "ndvi_mean": -0.007002340771775291
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241012T111011_20241012T111445_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-10-12",
+        "ndvi_mean": 0.0269174664685441
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241017T110949_20241017T111906_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-10-17",
+        "ndvi_mean": 0.12554544845891624
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241022T111121_20241022T111445_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-10-22",
+        "ndvi_mean": 0.10173297381443443
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241027T111059_20241027T112054_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-10-27",
+        "ndvi_mean": 0.12919825424012873
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241101T111221_20241101T111445_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-11-01",
+        "ndvi_mean": 0.13335288509429377
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241106T111149_20241106T111144_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-11-06",
+        "ndvi_mean": 0.14507046203316853
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241111T111311_20241111T111444_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-11-11",
+        "ndvi_mean": 0.13490856820377709
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241116T111239_20241116T111851_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-11-16",
+        "ndvi_mean": 0.14889413899891932
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241126T111319_20241126T111320_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-11-26",
+        "ndvi_mean": 0.09891424329933081
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241201T111431_20241201T111445_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-12-01",
+        "ndvi_mean": 0.1247097365767011
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241206T111349_20241206T111736_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-12-06",
+        "ndvi_mean": 0.14490720710122143
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241211T111451_20241211T111450_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-12-11",
+        "ndvi_mean": 0.10028216629670372
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241211T111521_20241211T112115_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-12-11",
+        "ndvi_mean": 0.11519744890617994
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241216T111359_20241216T111805_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-12-16",
+        "ndvi_mean": 0.1570134242337569
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241221T111501_20241221T111457_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-12-21",
+        "ndvi_mean": 0.09931355756503674
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "20241226T111409_20241226T111806_T29SPT",
+      "properties": {
+        "city": "Casablanca",
+        "date": "2024-12-26",
+        "ndvi_mean": 0.1451189406269343
+      }
+    }
+  ]
+}

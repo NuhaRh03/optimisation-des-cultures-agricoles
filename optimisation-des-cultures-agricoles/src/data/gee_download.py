@@ -1,66 +1,64 @@
 import ee
-import os
+import json
+from pathlib import Path
 
-# ---------------------
-# 1) AUTH + INIT
-# ---------------------
-ee.Initialize(project='bigdataagri')   # <-- ديري هنا project-id ديالك
+# Initialize Earth Engine
+ee.Initialize(project='bigdataagri')
 
-# ---------------------
-# 2) PARAMETERS
-# ---------------------
-LAT = 33.5731
-LON = -7.5898
-ROI = ee.Geometry.Point([LON, LAT]).buffer(3000)  # دائرة 3km
+# Casablanca coordinates
+lat, lon = 33.5731, -7.5898
+CITY = "Casablanca"
 
-START = '2024-01-01'
-END   = '2024-12-31'
+# Output directory
+OUT_DIR = Path("data/raw/satellite")
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-OUT_DIR = "satellite_images"
-os.makedirs(OUT_DIR, exist_ok=True)
 
-# ---------------------
-# 3) SENTINEL-2 SR COLLECTION
-# ---------------------
-collection = (
-    ee.ImageCollection("COPERNICUS/S2_SR")  # ✔ دائماً فيها QA60
-    .filterBounds(ROI)
-    .filterDate(START, END)
-    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 30))  # < 30% clouds
-)
+def extract_ndvi(start, end, year):
+    print(f"\n🛰 Extracting NDVI for Casablanca {year}...")
 
-print("Number of images:", collection.size().getInfo())
+    # AOI = منطقه دائرية (3 KM)
+    region = ee.Geometry.Point([lon, lat]).buffer(3000)
 
-# ---------------------
-# 4) FUNCTION TO EXPORT NDVI IMAGE
-# ---------------------
-def process_image(img):
-    ndvi = img.normalizedDifference(['B8', 'B4']).rename('NDVI')
+    # Build NDVI collection
+    collection = (
+        ee.ImageCollection("COPERNICUS/S2_SR_HARMONIZED")
+        .filterDate(start, end)
+        .filterBounds(region)
+        .map(lambda img: img.addBands(
+            img.normalizedDifference(["B8", "B4"]).rename("NDVI")
+        ))
+    )
 
-    date = img.date().format("YYYY-MM-dd").getInfo()
-    file_path = f"{OUT_DIR}/ndvi_{date}.tif"
+    # Extract NDVI mean per image
+    def extract(img):
+        mean_ndvi = img.select("NDVI").reduceRegion(
+            reducer=ee.Reducer.mean(),
+            geometry=region,
+            scale=10,
+            maxPixels=1e13
+        ).get("NDVI")
 
-    print("Downloading:", file_path)
+        date = img.date().format("YYYY-MM-dd")
 
-    url = ndvi.clip(ROI).getDownloadURL({
-        'scale': 10,
-        'region': ROI,
-        'format': 'GEO_TIFF'
-    })
+        return ee.Feature(None, {
+            "city": CITY,
+            "date": date,
+            "ndvi_mean": mean_ndvi
+        })
 
-    import requests
-    r = requests.get(url)
+    # Create FeatureCollection & get JSON
+    fc = collection.map(extract).limit(500)  # Enough for 2 years
+    features = fc.getInfo()
 
-    with open(file_path, "wb") as f:
-        f.write(r.content)
+    # Save JSON
+    out_file = OUT_DIR / f"ndvi_casablanca_{year}.json"
+    with open(out_file, "w") as f:
+        json.dump(features, f, indent=2)
 
-# ---------------------
-# 5) LOOP OVER IMAGES (mass download)
-# ---------------------
-img_list = collection.toList(collection.size())
+    print(f"✔ Saved → {out_file}")
 
-for i in range(collection.size().getInfo()):
-    img = ee.Image(img_list.get(i))
-    process_image(img)
 
-print("✔ DONE — All satellite NDVI images downloaded!")
+# ---- RUN EXTRACTIONS ----
+extract_ndvi("2023-01-01", "2023-12-31", 2023)
+extract_ndvi("2024-01-01", "2024-12-31", 2024)

@@ -1,0 +1,28 @@
+paths:
+  satellite_raw: "data/raw/satellite"
+  weather_raw: "data/raw/weather"
+  satellite_processed: "data/processed/satellite"
+  weather_processed: "data/processed/weather"
+  features: "data/features/training"
+
+earth_engine:
+  collection: "COPERNICUS/S2_SR"
+  start_date: "2024-01-01"
+  end_date: "2024-12-31"
+  bands: ["B4", "B8"]
+  scale: 10
+
+weather_api:
+  base_url: "https://api.openweathermap.org/data/2.5/onecall"
+  api_key: "PUT_YOUR_KEY_HERE"
+  units: "metric"
+
+hdfs:
+  satellite_hdfs: "/data/satellite"
+  weather_hdfs: "/data/weather"
+  silver_weather: "/data/weather/silver"
+  gold_weather: "/data/weather/gold"
+
+spark:
+  app_name: "agriculture_pipeline"
+  master: "spark://spark-master:7077"
